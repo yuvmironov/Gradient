@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <style>
+        .gradient {
+            display: block;
+            width: 400px;
+            height: 400px;
+            border: 1px solid #000;
+        }
+        .item {
+            background-image:  linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(255,255,255, 1) 100%);
+        }
+    </style>
+    <title>Gradient 2</title>
+</head>
+<body>
+    <div class="gradient"></div>
+
+    <hr/>
+    <button id="add-color">Добавить цвет</button>
+    <hr/>
+    <label for="check">Включить градиент</label>
+    <input type="checkbox" class="check" id="check">
+    <br/>
+    <div class="control">
+
+    </div>
+
+
+    <script src="script_2.js"></script>
+</body>
+</html>
