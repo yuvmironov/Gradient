@@ -6,7 +6,22 @@ $(document).ready(function () {
     var item = 2;
 
     var color = ['#000000', '#ffffff'];
-    var position = ['0', '100'];
+    var position = ['0', '50'];
+
+    function createGradient( ) {
+        var property = 'linear-gradient(to top, ' + color[0] + ' ' + position[0] +  '%, ';
+        for (i = 1; i < color.length; i++) {
+            property = property + color[i] + ' ' + position[i] +'% ';
+        }
+        property = property + ')';
+        $('.gradient').css('background-image', property);
+    }
+
+    function changeColor( id_element, colorForChange ) {
+        var numberElement = id_element.replace('color_','');
+        color[numberElement] = colorForChange;
+        createGradient();
+    }
 
 
     $('#check').on('change', function () {
@@ -30,7 +45,17 @@ $(document).ready(function () {
            }
            property = property + ')';
            $('.gradient').css('background-image', property);
+
+           $('.control').children('[type="color"]').on('change' ,function () {
+               var id = $(this).attr('id');
+               var color = $(this).val();
+               changeColor(id, color);
+           });
+
            flag = true;
        }
     });
+
+
+
 });
