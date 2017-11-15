@@ -51,6 +51,7 @@ $(document).ready(function () {
            $('.control').empty();
        } else {
            var i =1;
+           var item = color.length;
            var property = 'linear-gradient(to top, ' + color[0] + ' ' + position[0] +  '%, ';
            createElement(0);
            while (i < item) {
@@ -60,41 +61,40 @@ $(document).ready(function () {
            }
            property = property + ')';
            $('.gradient').css('background-image', property);
-
-           //Добавление цвета
-           $('#add-color').on('click', function () {
-               var positionElement = color.length;
-               color[positionElement] = "#000000";
-               position[positionElement] = "100";
-               createGradient();
-               createElement(positionElement);
-           });
-
-           //Меняем прозрачность
-           $('#opacity').on('change', function () {
-               $('.gradient').css('opacity', $(this).val());
-               $(this).next().html($(this).val());
-           });
-
-
-           //меняем цвет
-           $('.control').on('change', '.gradient__color' ,function () {
-               var id = $(this).attr('id');
-               var color = $(this).val();
-               changeColor(id, color);
-           });
-
-           //Меняем позицию цвета
-           $('.control').on('change','.gradient__position', function () {
-               var id = $(this).attr('id');
-               var pos = $(this).val();
-               $(this).next().html(pos);
-              changePosition(id, pos);
-           });
-
            flag = true;
        }
     });
+    //Добавление цвета
+    $('#add-color').on('click', function () {
+        var positionElement = color.length;
+        color[positionElement] = "#000000";
+        position[positionElement] = "100";
+        createGradient();
+        createElement(positionElement);
+    });
+
+    //Меняем прозрачность
+    $('#opacity').on('change', function () {
+        $('.gradient').css('opacity', $(this).val());
+        $(this).next().html($(this).val());
+    });
+
+
+    //меняем цвет
+    $('.control').on('change', '.gradient__color' ,function () {
+        var id = $(this).attr('id');
+        var color = $(this).val();
+        changeColor(id, color);
+    });
+
+    //Меняем позицию цвета
+    $('.control').on('change','.gradient__position', function () {
+        var id = $(this).attr('id');
+        var pos = $(this).val();
+        $(this).next().html(pos);
+        changePosition(id, pos);
+    });
+
 
 
 
