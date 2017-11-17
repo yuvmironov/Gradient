@@ -50,17 +50,13 @@ $(document).ready(function () {
            flag = false;
            $('.control').empty();
        } else {
-           var i =1;
+           var i =0;
            var item = color.length;
-           var property = 'linear-gradient(to top, ' + color[0] + ' ' + position[0] +  '%, ';
-           createElement(0);
            while (i < item) {
-               property = property + color[i] + ' ' + position[i] +'% ';
                createElement(i);
                i++;
            }
-           property = property + ')';
-           $('.gradient').css('background-image', property);
+            createGradient();
            flag = true;
        }
     });
